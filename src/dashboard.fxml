@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="main" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardController">
+   <children>
+      <AnchorPane fx:id="navbar" prefHeight="603.0" prefWidth="190.0" styleClass="navbar" stylesheets="@dashboardDesign.css">
+         <children>
+            <Circle fill="#3c4146" layoutX="80.0" layoutY="87.0" radius="73.0" stroke="#f5e5e5" strokeType="INSIDE" />
+            <Label layoutX="24.0" layoutY="183.0" text="Welcome!" textFill="#fcf3f3">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="user" layoutX="12.0" layoutY="226.0" prefHeight="39.0" prefWidth="162.0" styleClass="lable" stylesheets="@dashboardDesign.css" textFill="#eeeded">
+               <font>
+                  <Font name="Bookman Old Style" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="student" layoutX="10.0" layoutY="341.0" mnemonicParsing="false" onAction="#student_form" prefHeight="30.0" prefWidth="170.0" styleClass="navebutton" stylesheets="@dashboardDesign.css" text="Student" textFill="#f8f4f4" AnchorPane.topAnchor="341.0">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="#f5f0f0" glyphName="USER" />
+               </graphic>
+            </Button>
+            <Button fx:id="record" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" onAction="#change_form" prefHeight="30.0" prefWidth="170.0" styleClass="navebutton" stylesheets="@dashboardDesign.css" text="Student Record" textFill="#f8f4f4" AnchorPane.topAnchor="388.0">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="#f8f1f1" glyphName="CLIPBOARD" />
+               </graphic>
+            </Button>
+            <Button fx:id="data" layoutX="10.0" layoutY="436.0" mnemonicParsing="false" onAction="#data_form" prefHeight="30.0" prefWidth="170.0" styleClass="navebutton" stylesheets="@dashboardDesign.css" text="DAta Analysis" textFill="#f8f4f4">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="#f5f3f3" glyphName="LINE_CHART" />
+               </graphic>
+            </Button>
+            <Button layoutX="37.0" layoutY="47.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="88.0" styleClass="editbtn" stylesheets="@dashboardDesign.css" />
+            <Button fx:id="home" layoutX="10.0" layoutY="294.0" mnemonicParsing="false" onAction="#record_form" prefHeight="30.0" prefWidth="170.0" styleClass="navebutton" stylesheets="@dashboardDesign.css" text="home" textFill="#f8f4f4">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="#f5f2f2" glyphName="HOME" size="1.2em" />
+               </graphic>
+            </Button>
+            <Button layoutX="11.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#openlogoutcard" prefHeight="24.0" prefWidth="33.0" styleClass="cog" stylesheets="@dashboardDesign.css">
+               <graphic>
+                  <FontAwesomeIcon fx:id="cog_btn" glyphName="COG" size="2em" />
+               </graphic>
+            </Button>
+            <AnchorPane fx:id="logout_card" layoutX="38.0" layoutY="357.0" prefHeight="200.0" prefWidth="135.0" styleClass="logout_card" stylesheets="@dashboardDesign.css" visible="false" AnchorPane.leftAnchor="38.0" AnchorPane.topAnchor="357.0">
+               <children>
+                  <Button fx:id="logout_button" layoutX="10.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutAccount" prefHeight="39.0" prefWidth="112.0" styleClass="logout_button" stylesheets="@dashboardDesign.css" text="LOG OUT" textFill="#f5ebeb" />
+                  <FontAwesomeIcon fill="#f5efef" glyphName="SIGN_OUT" layoutX="14.0" layoutY="48.0" size="2em" wrappingWidth="14.000000417232513" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="60.0" fitWidth="88.0" layoutX="36.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@javaImageIcon/s4.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIcon fx:id="edit" fill="#f2ebeb" glyphName="EDIT" layoutX="74.0" layoutY="150.0" size="1.5em" wrappingWidth="12.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="student_page" layoutX="180.0" layoutY="34.0" prefHeight="573.0" prefWidth="802.0">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="10.0" onDragDetected="#insert" prefHeight="109.0" prefWidth="814.0" styleClass="card_top" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label fx:id="studentlable" onMouseEntered="#dropShadoweffect" onMouseExited="#dropShadoweffect" prefHeight="93.0" prefWidth="732.0" text="Insert Student Information" textFill="#fcf8f8">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="51.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="14.0" layoutY="128.0" prefHeight="50.0" prefWidth="112.0" text="Student Id">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="213.0" prefHeight="50.0" prefWidth="146.0" text="Name">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="262.0" prefHeight="50.0" prefWidth="146.0" text="Age">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="312.0" prefHeight="50.0" prefWidth="146.0" text="Gender">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="379.0" prefHeight="50.0" prefWidth="146.0" text="Picture:">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="16.0" layoutY="469.0" mnemonicParsing="false" onAction="#insert" prefHeight="39.0" prefWidth="88.0" styleClass="insert-button" stylesheets="@dashboardDesign.css" text="Insert">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="updatebtn" layoutX="16.0" layoutY="520.0" mnemonicParsing="false" onAction="#update" prefHeight="39.0" prefWidth="88.0" styleClass="insert-button" stylesheets="@dashboardDesign.css" text="Update">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="206.0" layoutY="469.0" mnemonicParsing="false" onAction="#clear" prefHeight="39.0" prefWidth="88.0" styleClass="insert-button" stylesheets="@dashboardDesign.css" text="Clear">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="206.0" layoutY="520.0" mnemonicParsing="false" onAction="#delet" prefHeight="39.0" prefWidth="88.0" styleClass="insert-button" stylesheets="@dashboardDesign.css" text="Delete">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="id" layoutX="124.0" layoutY="136.0" onKeyTyped="#textfieldRecord" onMouseClicked="#textfieldRecord" onMouseDragged="#textfieldRecord" prefHeight="35.0" prefWidth="162.0" styleClass="textfield-design" stylesheets="@dashboardDesign.css" />
+            <TextField fx:id="surname" layoutX="125.0" layoutY="221.0" onKeyTyped="#textfieldRecord" onMouseClicked="#textfieldRecord" onMouseDragged="#textfieldRecord" prefHeight="35.0" prefWidth="162.0" styleClass="textfield-design" stylesheets="@dashboardDesign.css" />
+            <TextField fx:id="age" layoutX="125.0" layoutY="270.0" onAction="#textfieldRecord" onKeyTyped="#textfieldRecord" onMouseClicked="#textfieldRecord" onMouseDragged="#textfieldRecord" prefHeight="35.0" prefWidth="162.0" styleClass="textfield-design" stylesheets="@dashboardDesign.css" />
+            <ComboBox fx:id="gender" layoutX="125.0" layoutY="321.0" onAction="#comboBox" onKeyTyped="#comboBox" onMouseClicked="#comboBox" onMouseDragged="#comboBox" prefHeight="32.0" prefWidth="162.0" promptText="Choose...." styleClass="textfield-design" stylesheets="@dashboardDesign.css" />
+            <TableView fx:id="table_view" layoutX="323.0" layoutY="215.0" onMouseClicked="#selectData" prefHeight="349.0" prefWidth="487.0">
+              <columns>
+                <TableColumn fx:id="col_id" prefWidth="78.0" text="Student Id" />
+                <TableColumn fx:id="col_surname" prefWidth="66.0" text="Sur Name" />
+                  <TableColumn fx:id="col_age" prefWidth="49.0" text="age" />
+                  <TableColumn fx:id="col_gender" prefWidth="55.0" text="Gender" />
+                  <TableColumn fx:id="col_address" minWidth="0.0" prefWidth="87.0" text="Address" />
+                  <TableColumn fx:id="col_date" minWidth="7.0" prefWidth="79.0" text="Date" />
+                  <TableColumn fx:id="col_image" prefWidth="72.0" text="Image" />
+              </columns>
+            </TableView>
+            <Button fx:id="Image_path" layoutX="135.0" layoutY="362.0" mnemonicParsing="false" onAction="#InsertImageData" prefHeight="81.0" prefWidth="135.0" textFill="#0d0c0c">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="image_view" fitHeight="74.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@javaImageIcon/s3.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="file_path" layoutX="165.0" layoutY="443.0" prefHeight="17.0" prefWidth="80.0" text="Insert Image">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="170.0" prefHeight="50.0" prefWidth="112.0" text="Address">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="20.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="adress" layoutX="122.0" layoutY="179.0" onAction="#comboBox" onKeyTyped="#comboBox2" onMouseClicked="#comboBox2" onMouseDragged="#comboBox2" prefHeight="32.0" prefWidth="162.0" promptText="choose..." styleClass="textfield-design" stylesheets="@dashboardDesign.css" />
+            <Label layoutX="343.0" layoutY="128.0" prefHeight="50.0" prefWidth="112.0" text="Date">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="20.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date" layoutX="417.0" layoutY="141.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="190.0" prefHeight="39.0" prefWidth="814.0">
+         <children>
+            <Button layoutX="758.0" mnemonicParsing="false" onAction="#Exit" prefHeight="24.0" prefWidth="56.0" styleClass="exit" stylesheets="@dashboardDesign.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <graphic>
+                  <FontAwesomeIcon fill="#f2e8e8" glyphName="CLOSE" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="home_page" layoutX="185.0" layoutY="39.0" prefHeight="563.0" prefWidth="814.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="150.0" prefWidth="814.0" styleClass="navbar" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label layoutX="15.0" layoutY="8.0" prefHeight="93.0" prefWidth="56.0" text="S" textFill="#fff0f0">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="82.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="43.0" layoutY="90.0" prefHeight="35.0" prefWidth="364.0" text="3RD year computer science 2015" textFill="#f8eaea">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="recordelable" layoutX="73.0" layoutY="24.0" prefHeight="60.0" prefWidth="565.0" text="Tudent Record" textFill="#fff7f7">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="14.0" layoutY="301.0" prefHeight="32.0" prefWidth="119.0" text="Surname:">
+               <font>
+                  <Font name="Bookman Old Style Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="6.0" layoutY="198.0" prefHeight="32.0" prefWidth="135.0" text="Student id:">
+               <font>
+                  <Font name="Bookman Old Style Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="sr_id" layoutX="152.0" layoutY="200.0" onKeyTyped="#SRfielddesign" onMouseClicked="#SRfielddesign" prefHeight="28.0" prefWidth="135.0" styleClass="lable-design" stylesheets="@dashboardDesign.css" text="Label" />
+            <Label layoutX="14.0" layoutY="404.0" prefHeight="32.0" prefWidth="119.0" text="Current:">
+               <font>
+                  <Font name="Bookman Old Style Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="sr_current" layoutX="126.0" layoutY="404.0" onAction="#SRcomboBox" onKeyTyped="#SRfielddesign" onMouseClicked="#SRfielddesign" prefHeight="33.0" prefWidth="162.0" promptText="choose..." styleClass="lable-design" stylesheets="@dashboardDesign.css" />
+            <Slider layoutX="335.0" layoutY="169.0" orientation="VERTICAL" prefHeight="342.0" prefWidth="14.0" />
+            <TableView fx:id="sr_table_view" layoutX="407.0" layoutY="177.0" onMouseClicked="#selectStudentRecored" prefHeight="358.0" prefWidth="343.0">
+              <columns>
+                <TableColumn fx:id="sr_col_id" text="Student Id" />
+                <TableColumn fx:id="col_sr_surname" prefWidth="75.0" text="Surname" />
+                  <TableColumn fx:id="col_sr_current" prefWidth="56.0" text="Current" />
+                  <TableColumn fx:id="col_sr_image" minWidth="0.0" prefWidth="67.0" text="image" />
+                  <TableColumn fx:id="sr_col_gen" prefWidth="64.0" text="Gender" />
+              </columns>
+            </TableView>
+            <Button fx:id="sr_update" layoutX="48.0" layoutY="489.0" mnemonicParsing="false" onAction="#studentRecordUpdate" prefHeight="35.0" prefWidth="80.0" styleClass="insert-button" stylesheets="@dashboardDesign.css" text="Update" />
+            <Button fx:id="sr_clear" layoutX="205.0" layoutY="489.0" mnemonicParsing="false" onAction="#studentRecordclear" prefHeight="35.0" prefWidth="80.0" styleClass="insert-button" stylesheets="@dashboardDesign.css" text="Clear" />
+            <Label fx:id="sr_surname" layoutX="152.0" layoutY="303.0" onKeyTyped="#SRfielddesign" onMouseClicked="#SRfielddesign" prefHeight="28.0" prefWidth="146.0" styleClass="lable-design" stylesheets="@dashboardDesign.css" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="recored_page" layoutX="190.0" layoutY="39.0" prefHeight="563.0" prefWidth="814.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="150.0" prefWidth="814.0" styleClass="navbar" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label layoutX="15.0" layoutY="8.0" prefHeight="93.0" prefWidth="56.0" text="S" textFill="#fff0f0">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="82.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="43.0" layoutY="90.0" prefHeight="35.0" prefWidth="364.0" text="3RD year computer science 2015" textFill="#f8eaea">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="homelable" layoutX="73.0" layoutY="24.0" onMouseEntered="#dropShadoweffect" onMouseExited="#dropShadoweffect" prefHeight="60.0" prefWidth="565.0" text="chool Management" textFill="#fff7f7">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="total_student_card" layoutX="14.0" layoutY="159.0" onMouseEntered="#hovertotalcard" onMouseExited="#hovertotalcard" prefHeight="164.0" prefWidth="239.0" styleClass="card-dashboard1" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label fx:id="total_student" layoutX="21.0" layoutY="92.0" prefHeight="24.0" prefWidth="80.0" textFill="#ebe8e8">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="9.0" layoutY="27.0" prefHeight="24.0" prefWidth="209.0" text="Total Valid Student" textFill="#f8efef">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="#8484b5" glyphName="USERS" layoutX="127.0" layoutY="138.0" size="8em" wrappingWidth="12.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="total_enroll_card" layoutX="14.0" layoutY="362.0" onMouseEntered="#hovertotalcard" onMouseExited="#hovertotalcard" prefHeight="160.0" prefWidth="162.0" styleClass="card-dashboard3" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label fx:id="total_enrolled" layoutX="21.0" layoutY="92.0" prefHeight="24.0" prefWidth="80.0" textFill="#eee1e1">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="30.0" layoutY="29.0" prefHeight="24.0" prefWidth="209.0" text="Total Enrolled" textFill="#e4d5d5">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fx:id="total_enrolled_card" fill="#8484b5" glyphName="USER_PLUS" layoutX="114.0" layoutY="138.0" size="8em" wrappingWidth="12.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="total_graduate_card" layoutX="273.0" layoutY="161.0" onMouseEntered="#hovertotalcard" onMouseExited="#hovertotalcard" prefHeight="160.0" prefWidth="197.0" styleClass="card-dashboard2" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label fx:id="total_graduate" layoutX="21.0" layoutY="92.0" prefHeight="24.0" prefWidth="80.0" textFill="#eeecec">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="30.0" layoutY="29.0" prefHeight="24.0" prefWidth="209.0" text="Total Graduate" textFill="#e8dede">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="#8484b5" glyphName="GRADUATION_CAP" layoutX="113.0" layoutY="138.0" size="8em" text="" wrappingWidth="12.000000357627869" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="total_ianactive_card" layoutX="273.0" layoutY="362.0" onMouseEntered="#hovertotalcard" onMouseExited="#hovertotalcard" prefHeight="160.0" prefWidth="230.0" styleClass="card-dashboard4" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label fx:id="total_inactive" layoutX="21.0" layoutY="92.0" prefHeight="24.0" prefWidth="80.0" textFill="#f8f8f8">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="30.0" layoutY="31.0" prefHeight="24.0" prefWidth="209.0" text="Total Inactive" textFill="#fcf2f2">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="#8484b5" glyphName="STREET_VIEW" layoutX="129.0" layoutY="138.0" size="8em" wrappingWidth="12.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="total_male_card" layoutX="548.0" layoutY="161.0" onMouseEntered="#hovertotalcard" onMouseExited="#hovertotalcard" prefHeight="160.0" prefWidth="197.0" styleClass="card-dashboard2" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label fx:id="boy" layoutX="21.0" layoutY="92.0" prefHeight="24.0" prefWidth="80.0" textFill="#f2eaea">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="30.0" layoutY="29.0" prefHeight="24.0" prefWidth="209.0" text="Male" textFill="#f5f0f0">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="#8484b5" glyphName="USER" layoutX="113.0" layoutY="138.0" size="8em" text="" wrappingWidth="12.000000357627869" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="total_female_card" layoutX="548.0" layoutY="362.0" onMouseEntered="#hovertotalcard" onMouseExited="#hovertotalcard" prefHeight="160.0" prefWidth="197.0" styleClass="card-dashboard2" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label fx:id="female" layoutX="21.0" layoutY="92.0" prefHeight="24.0" prefWidth="80.0" textFill="#eee3e3">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="30.0" layoutY="29.0" prefHeight="24.0" prefWidth="209.0" text="Female" textFill="#fcf3f3">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="#8484b5" layoutX="113.0" layoutY="138.0" size="8em" text="" wrappingWidth="12.000000357627869" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Data_page" layoutX="190.0" layoutY="39.0" prefHeight="563.0" prefWidth="814.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="150.0" prefWidth="814.0" styleClass="navbar" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Label layoutX="80.0" layoutY="93.0" prefHeight="35.0" prefWidth="364.0" text="3RD year computer science 2015" textFill="#f8eaea">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="datalable" layoutX="73.0" layoutY="24.0" prefHeight="60.0" prefWidth="565.0" text="Data Analysis" textFill="#fff7f7">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="nav_chart" layoutY="282.0" prefHeight="150.0" prefWidth="65.0" styleClass="cartNavBar" stylesheets="@dashboardDesign.css">
+               <children>
+                  <Button fx:id="line_chart_button" layoutX="2.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigationchartButton" prefHeight="32.0" prefWidth="52.0" styleClass="cahrt_button" stylesheets="@dashboardDesign.css">
+                     <graphic>
+                        <FontAwesomeIcon fill="#fff8f8" glyphName="LINE_CHART" size="2em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="bar_chart_button" layoutX="2.0" layoutY="57.0" mnemonicParsing="false" onAction="#navigationchartButton" prefHeight="32.0" prefWidth="52.0" styleClass="cahrt_button" stylesheets="@dashboardDesign.css">
+                     <graphic>
+                        <FontAwesomeIcon fill="#eee9e9" glyphName="BAR_CHART" size="2em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="area_chart_button" layoutX="2.0" layoutY="100.0" mnemonicParsing="false" onAction="#navigationchartButton" prefHeight="32.0" prefWidth="52.0" styleClass="cahrt_button" stylesheets="@dashboardDesign.css">
+                     <graphic>
+                        <FontAwesomeIcon fill="#ebe9e9" glyphName="AREA_CHART" size="2em" />
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="line_chart_page" layoutX="92.0" layoutY="167.0" prefHeight="334.0" prefWidth="631.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="169.0">
+               <children>
+                  <LineChart fx:id="linechart" layoutX="16.0" layoutY="6.0" prefHeight="323.0" prefWidth="592.0" title="Line Chart" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="5.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+            </AnchorPane>
+            <Button fx:id="show_chart_button" layoutX="345.0" layoutY="510.0" mnemonicParsing="false" onAction="#showChart" prefHeight="39.0" prefWidth="105.0" styleClass="showchart_button" stylesheets="@dashboardDesign.css" text="Show" />
+            <AnchorPane fx:id="bar_chart_page" layoutX="102.0" layoutY="177.0" prefHeight="334.0" prefWidth="631.0" visible="false" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="169.0">
+               <children>
+                  <BarChart fx:id="barchart" layoutY="7.0" prefHeight="323.0" prefWidth="610.0" title="Bar Graph" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="5.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="area_chart_page" layoutX="103.0" layoutY="179.0" prefHeight="334.0" prefWidth="631.0" visible="false" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="169.0">
+               <children>
+                  <AreaChart fx:id="areaChart" layoutX="22.0" layoutY="6.0" prefHeight="328.0" prefWidth="594.0" title="Area Graph" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="6.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </AreaChart>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

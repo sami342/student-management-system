@@ -1,0 +1,119 @@
+.navbar{
+    -fx-background-color:linear-gradient(to bottom right,#2f466b,#662d60);
+}
+.card_top{
+     -fx-background-color:linear-gradient(to bottom right,#2f466b,#662d60);
+}
+.exit{
+    -fx-background-color:#c22c40;
+    -fx-background-radius: 5px;
+    -fx-cursor:hand;
+}
+.exit:hover{
+    -fx-background-color: f15b72;
+}
+.navebutton{
+    -fx-background-color:linear-gradient(to bottom right, rgba(121,172,255,0.2),rgba(256,106,239,0.2));
+    -fx-cursor:hand;
+    -fx-alignment:CENTER_LEFT;
+}
+.navebutton:hover{
+    -fx-background-color:linear-gradient(to bottom right, rgba(121,172,255,0.6),rgba(256,106,239,0.6));
+}
+.editbtn{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+    -fx-padding:50px 0px 0px 0px;
+}
+.insert-button{
+    -fx-background-color:#333;
+    -fx-background-radius:20px;
+    -fx-text-fill:#fff;
+    -fx-font-size:15px;
+    -fx-cursor:hand;
+}
+.insert-button:hover{
+    -fx-background-color:ae2859;
+}
+.textfield-design{
+    -fx-background-color:transparent;
+    -fx-background-radius:20px;
+    -fx-border-color:linear-gradient(to bottom right,#517ab5,#ae44a5);
+    -fx-border-radius:10px;
+    -fx-font-size:15px;
+}
+.lable-design{
+   -fx-background-color:transparent;
+    -fx-background-radius:20px;
+    -fx-border-color:linear-gradient(to bottom right,#517ab5,#ae44a5);
+    -fx-border-radius:10px;
+    -fx-font-size:15px;
+    -fx-padding:2px 2px 2px 10px;
+}
+.cartNavBar{
+     -fx-background-color:linear-gradient(to bottom right,#2f466b,#662d60);
+}
+.cahrt_button{
+    -fx-background-color:linear-gradient(to bottom right, rgba(121,172,255,0.2),rgba(256,106,239,0.2));
+    -fx-cursor:hand;
+}
+.cahrt_button:hover{
+     -fx-background-color:linear-gradient(to bottom right, rgba(121,172,255,0.6),rgba(256,106,239,0.6));
+}
+.showchart_button{
+    -fx-background-color:#333;
+    -fx-background-radius:20px;  
+    -fx-cursor:hand;
+    -fx-text-fill:#fff;
+    -fx-font-size:18px;
+    
+}
+.showchart_button:hover{
+     -fx-background-color:linear-gradient(to bottom right,#517ab5,#ae44a5);
+}
+.card-dashboard1{
+    -fx-background-color:linear-gradient(to bottom right,#2f466b,#ae44a5);
+    -fx-background-size:20px;
+    -fx-background-radius:20px;
+}
+.card-dashboard2{
+    -fx-background-color:linear-gradient(to bottom right,#29825e,#47ae83);
+    -fx-background-size:20px;
+    -fx-background-radius:20px;
+   
+}
+.card-dashboard3{
+    -fx-background-color:linear-gradient(to bottom right,#7f308c,#47ae83);
+    -fx-background-size:20px;
+    -fx-background-radius:20px;
+}
+.card-dashboard4{
+    -fx-background-color:linear-gradient(to bottom right,#ae2859,#cc4677);
+    -fx-background-size:20px;
+    -fx-background-radius:20px;
+}
+.cog{
+   -fx-background-color:linear-gradient(to bottom right, rgba(121,172,255,0.2),rgba(256,106,239,0.2));
+    -fx-cursor:hand;
+    -fx-background-radius:50px; 
+}
+.cog:hover{
+      -fx-background-color:linear-gradient(to bottom right, rgba(121,172,255,0.6),rgba(256,106,239,0.6));
+       
+}
+.logout_card{
+     -fx-background-color:linear-gradient(to bottom right,#2f466b,#662d60);
+     -fx-background-radius:8px;
+     -fx-cursor:hand;
+     -fx-font-size:15px;
+    
+}
+.logout_button{
+ -fx-background-color:linear-gradient(to bottom right,#2f466b,#662d60);
+     -fx-background-radius:8px;
+     -fx-cursor:hand;
+     -fx-font-size:15px;   
+}
+.logout_button:hover{
+    -fx-background-color:linear-gradient(to bottom right, rgba(121,172,255,0.6),rgba(256,106,239,0.6));
+}
